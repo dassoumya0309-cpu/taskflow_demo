@@ -11,59 +11,128 @@
 <body>
 
     <header>
-        <h1>TaskFlow</h1>
-        <p>Manage your tasks, achieve your goals.</p>
+        <div class="brand">
+            <h1>TaskFlow</h1>
+            <p>Manage your tasks, achieve your goals.</p>
+        </div>
         <button id="addTaskBtn">+ Add Task</button>
     </header>
     <main>
         <section class="dashboard">
-
-            <div class="card">
-                <h3>Total Tasks</h3>
-                <span id="totalCount">0</span>
-            </div>
-            <div class="card">
-                <h3>Pending Tasks</h3>
-                <span id="pendingCount">0</span>
-            </div>
-            <div class="card">
-                <h3>Completed Tasks</h3>
-                <span id="completedCount">0</span>
-            </div>
-            <div class="card">
-                <h3>Overdue Tasks</h3>
-                <span id="overdueCount">0</span>
+            <h2>Dashboard</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Tasks</h3>
+                    <span id="totalCount">0</span>
+                </div>
+                <div class="card">
+                    <h3>Pending Tasks</h3>
+                    <span id="pendingCount">0</span>
+                </div>
+                <div class="card">
+                    <h3>Completed Tasks</h3>
+                    <span id="completedCount">0</span>
+                </div>
+                <div class="card">
+                    <h3>Overdue Tasks</h3>
+                    <span id="overdueCount">0</span>
+                </div>
             </div>
         </section>
         <section class="controls">
-            <input type="search" id="searchInput" placeholder="Search tasks by title...">
+            <h2>Find Your Tasks</h2>
 
-            <select id="statusFilter">
-                <option value="all">All Tasks</option>
-                <option value="pending">Pending</option>
-                <option value="completed">Completed</option>
-            </select>
-            <select id="priorityFilter">
-                <option value="all">All Priorities</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-            <select id="deadlineFilter">
-                <option value="all">All Deadlines</option>
-                <option value="today">Due Today</option>
-                <option value="week">Due This Week</option>
-                <option value="overdue">Overdue</option>
-            </select>
-            <select id="sortSelect">
-                <option value="dueDate">Due Date</option>
-                <option value="priority">Priority</option>
-                <option value="status">Completion Status</option>
-            </select>
+            <div class="search-box">
+                <input type="search" id="searchInput" placeholder="Search tasks by title...">
+            </div>
+
+            <div class="filter-group">
+                <label for="statusFilter">Status</label>
+                <select id="statusFilter">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="priorityFilter">Priority</label>
+                <select id="priorityFilter">
+                    <option value="all">All Priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="deadlineFilter">Deadline</label>
+                <select id="deadlineFilter">
+                    <option value="all">All Deadlines</option>
+                    <option value="today">Due Today</option>
+                    <option value="week">Due This Week</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sortSelect">Sort By</label>
+                <select id="sortSelect">
+                    <option value="dueDate">Due Date</option>
+                    <option value="priority">Priority</option>
+                    <option value="status">Completion Status</option>
+                </select>
+            </div>
 
             <button id="clearFiltersBtn">Clear Filters</button>
         </section>
+
+        <div class="content">
+
+
+            <section class="task-list-section">
+                <h2>My Tasks</h2>
+                <div id="taskList"></div>
+                <p id="emptyState">No tasks found</p>
+            </section>
+
+            <aside class="form-section">
+                <h2>Add New Task</h2>
+                <form id="taskForm">
+                    <input type="hidden" id="taskId">
+                    <label for="title">Title <span class="req">*</span></label>
+                    <input type="text" id="title" required>
+
+                    <label for="description">Description</label>
+                    <textarea id="description"></textarea>
+                    <label for="priority">Priority</label>
+                    <select id="priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <label for="dueDate">Due Date <span class="req">*</span></label>
+                    <input type="date" id="dueDate" required>
+
+                    <button type="submit">Save Task</button>
+                    <button type="button" id="cancelBtn">Cancel</button>
+                </form>
+
+            </aside>
+
+        </div>
+
+
+
     </main>
+    <div id="deleteModal" class="modal hidden">
+        <div class="modal-box">
+            <h3>Delete Task?</h3>
+            <p>Are you sure you want to delete this task?</p>
+            <button id="confirmDeleteBtn">Yes, Delete</button>
+            <button id="cancelDeleteBtn">Cancel</button>
+        </div>
+    </div>
 
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
