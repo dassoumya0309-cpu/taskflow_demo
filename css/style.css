@@ -82,3 +82,175 @@ header p {
 .card:nth-child(2) { background: #fffbeb; }
 .card:nth-child(3) { background: #f0fdf4; }
 .card:nth-child(4) { background: #fef2f2; }
+/* ===== Section headings ===== */
+main h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+/* ===== Controls ===== */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.controls h2 {
+    width: 100%;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 220px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.filter-group select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+}
+
+#clearFiltersBtn {
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ===== Two-column layout ===== */
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+.task-list-section,
+.form-section {
+    background: var(--card-bg);
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+}
+/* ===== Form ===== */
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-section label {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-section input[type="text"],
+.form-section input[type="date"],
+.form-section textarea,
+.form-section select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-section textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.req {
+    color: var(--red);
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.form-actions button {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    background: white;
+}
+
+.form-actions button[type="submit"] {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+/* ===== Delete popup ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-box {
+    background: white;
+    padding: 24px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 380px;
+}
+
+.modal-box h3 {
+    margin: 0 0 8px;
+}
+
+#confirmDeleteBtn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#cancelDeleteBtn {
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
