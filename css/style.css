@@ -1,0 +1,84 @@
+/* ===== Base styles ===== */
+:root {
+    --blue: #2563eb;
+    --bg: #f5f7fb;
+    --text: #1f2937;
+    --card-bg: #ffffff;
+    --red: #dc2626;
+    --orange: #f59e0b;
+    --green: #16a34a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+main {
+    padding: 24px;
+}
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--card-bg);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+#addTaskBtn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ===== Dashboard cards ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+}
+
+.card span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.card:nth-child(1) { background: #eff6ff; }
+.card:nth-child(2) { background: #fffbeb; }
+.card:nth-child(3) { background: #f0fdf4; }
+.card:nth-child(4) { background: #fef2f2; }
