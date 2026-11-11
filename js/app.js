@@ -20,4 +20,25 @@ taskForm.addEventListener("submit", function (event) {
     taskForm.reset();
     renderTasks();
 });
+const taskList = document.getElementById("taskList");
+
+taskList.addEventListener("change", function (event) {
+    if (event.target.classList.contains("task-check")) {
+        const id = event.target.closest(".task-item").dataset.id;
+        toggleTask(id);
+    }
+});
+
+function toggleTask(id) {
+    const tasks = getTasks();
+    const task = tasks.find(function (t) {
+        return t.id === id;
+    });
+
+    if (task) {
+        task.completed = !task.completed;
+        saveTasks(tasks);
+        renderTasks();
+    }
+}
 renderTasks();

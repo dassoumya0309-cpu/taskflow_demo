@@ -1,6 +1,6 @@
 function createTaskCard(task) {
     return `
-        <div class="task-item" data-id="${task.id}">
+        <div class="task-item ${task.completed ? "completed" : ""}" data-id="${task.id}">
             <input type="checkbox" class="task-check" ${task.completed ? "checked" : ""}>
             <div class="task-info">
                 <h4>${escapeHtml(task.title)}</h4>
