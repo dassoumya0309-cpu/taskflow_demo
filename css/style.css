@@ -78,10 +78,22 @@ header p {
     font-weight: bold;
 }
 
-.card:nth-child(1) { background: #eff6ff; }
-.card:nth-child(2) { background: #fffbeb; }
-.card:nth-child(3) { background: #f0fdf4; }
-.card:nth-child(4) { background: #fef2f2; }
+.card:nth-child(1) {
+    background: #eff6ff;
+}
+
+.card:nth-child(2) {
+    background: #fffbeb;
+}
+
+.card:nth-child(3) {
+    background: #f0fdf4;
+}
+
+.card:nth-child(4) {
+    background: #fef2f2;
+}
+
 /* ===== Section headings ===== */
 main h2 {
     margin: 0 0 12px;
@@ -158,6 +170,7 @@ main h2 {
     border-radius: 10px;
     padding: 20px;
 }
+
 /* ===== Form ===== */
 .form-section form {
     display: flex;
@@ -212,6 +225,7 @@ main h2 {
     color: white;
     border-color: var(--blue);
 }
+
 /* ===== Delete popup ===== */
 .modal {
     position: fixed;
@@ -254,6 +268,7 @@ main h2 {
     border-radius: 6px;
     cursor: pointer;
 }
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .cards {
@@ -270,6 +285,61 @@ main h2 {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+    }
+
+    /* ===== Task list ===== */
+    .task-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .task-info {
+        flex: 1;
+    }
+
+    .task-info h4 {
+        margin: 0 0 4px;
+    }
+
+    .task-info p {
+        margin: 0 0 4px;
+        font-size: 13px;
+        color: #6b7280;
+    }
+
+    .task-info small {
+        font-size: 11px;
+        color: #9ca3af;
+    }
+
+    .badge {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        text-transform: capitalize;
+    }
+
+    .badge.high {
+        background: #fee2e2;
+        color: var(--red);
+    }
+
+    .badge.medium {
+        background: #fef3c7;
+        color: #b45309;
+    }
+
+    .badge.low {
+        background: #dcfce7;
+        color: var(--green);
+    }
+
+    .due {
+        font-size: 13px;
+        color: #6b7280;
     }
 
     main {

@@ -18,5 +18,6 @@ taskForm.addEventListener("submit", function (event) {
     saveTasks(tasks);
 
     taskForm.reset();
-    console.log(getTasks());
+    renderTasks();
 });
+renderTasks();
