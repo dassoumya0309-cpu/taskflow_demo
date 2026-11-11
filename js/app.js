@@ -41,4 +41,30 @@ function toggleTask(id) {
         renderTasks();
     }
 }
+
+let taskToDelete = null;
+const deleteModal = document.getElementById("deleteModal");
+
+taskList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("delete-btn")) {
+        taskToDelete = event.target.closest(".task-item").dataset.id;
+        deleteModal.classList.remove("hidden");
+    }
+});
+
+document.getElementById("confirmDeleteBtn").addEventListener("click", function () {
+    const tasks = getTasks().filter(function (t) {
+        return t.id !== taskToDelete;
+    });
+    saveTasks(tasks);
+    closeDeleteModal();
+    renderTasks();
+});
+
+document.getElementById("cancelDeleteBtn").addEventListener("click", closeDeleteModal);
+
+function closeDeleteModal() {
+    taskToDelete = null;
+    deleteModal.classList.add("hidden");
+}
 renderTasks();
