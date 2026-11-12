@@ -24,4 +24,20 @@ function renderTasks() {
 
     list.innerHTML = tasks.map(createTaskCard).join("");
     empty.style.display = tasks.length === 0 ? "block" : "none";
+    updateDashboard();
+}
+
+function updateDashboard() {
+    const tasks = getTasks();
+    const total = tasks.length;
+    const completed = tasks.filter(function (t) {
+        return t.completed;
+    }).length;
+    const pending = total - completed;
+    const overdue = tasks.filter(isOverdue).length;
+
+    document.getElementById("totalCount").textContent = total;
+    document.getElementById("pendingCount").textContent = pending;
+    document.getElementById("completedCount").textContent = completed;
+    document.getElementById("overdueCount").textContent = overdue;
 }
