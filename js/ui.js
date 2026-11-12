@@ -1,4 +1,15 @@
-function createTaskCard(task) {
+function getVisibleTasks() {
+    let tasks = getTasks();
+
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+    if (query) {
+        tasks = tasks.filter(function (t) {
+            return t.title.toLowerCase().includes(query);
+        });
+    }
+
+    return tasks;
+} function createTaskCard(task) {
     return `
         <div class="task-item ${task.completed ? "completed" : ""}" data-id="${task.id}">
             <input type="checkbox" class="task-check" ${task.completed ? "checked" : ""}>
@@ -17,8 +28,9 @@ function createTaskCard(task) {
     `;
 }
 
+
 function renderTasks() {
-    const tasks = getTasks();
+    const tasks = getVisibleTasks();
     const list = document.getElementById("taskList");
     const empty = document.getElementById("emptyState");
 

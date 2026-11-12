@@ -67,4 +67,5 @@ function closeDeleteModal() {
     taskToDelete = null;
     deleteModal.classList.add("hidden");
 }
+document.getElementById("searchInput").addEventListener("input", renderTasks);
 renderTasks();
