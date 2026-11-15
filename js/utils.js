@@ -21,3 +21,17 @@ function getTodayString() {
 function isOverdue(task) {
     return !task.completed && task.dueDate < getTodayString();
 }
+
+function getDateOffsetString(days) {
+    const d = new Date();
+    d.setDate(d.getDate() + days);
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return d.getFullYear() + "-" + month + "-" + day;
+}
+
+function getDueClass(task) {
+    if (isOverdue(task)) return "overdue";
+    if (!task.completed && task.dueDate === getTodayString()) return "due-today";
+    return "";
+}

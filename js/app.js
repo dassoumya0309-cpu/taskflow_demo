@@ -119,4 +119,18 @@ function startEdit(id) {
     taskForm.scrollIntoView({ behavior: "smooth" });
 }
 document.getElementById("searchInput").addEventListener("input", renderTasks);
+document.getElementById("statusFilter").addEventListener("change", renderTasks);
+document.getElementById("priorityFilter").addEventListener("change", renderTasks);
+document.getElementById("deadlineFilter").addEventListener("change", renderTasks);
+document.getElementById("sortSelect").addEventListener("change", renderTasks);
+
+document.getElementById("clearFiltersBtn").addEventListener("click", function () {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("statusFilter").value = "all";
+    document.getElementById("priorityFilter").value = "all";
+    document.getElementById("deadlineFilter").value = "all";
+    document.getElementById("sortSelect").value = "dueDate";
+    renderTasks();
+});
+
 renderTasks();

@@ -329,7 +329,15 @@ main h2 {
     text-decoration: line-through;
     color: #9ca3af;
 }
+.due.overdue {
+    color: var(--red);
+    font-weight: bold;
+}
 
+.due.due-today {
+    color: var(--orange);
+    font-weight: bold;
+}
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .cards {
